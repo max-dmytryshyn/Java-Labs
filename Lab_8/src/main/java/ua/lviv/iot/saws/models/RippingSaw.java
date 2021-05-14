@@ -5,6 +5,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class RippingSaw {
+public class RippingSaw extends MechanicalSaw{
     private String toothShape;
 }

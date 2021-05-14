@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Fretsaw {
+public class Fretsaw extends MechanicalSaw{
     private Double arcLengthInCm;
     private String bladeManufacturer;
 }
