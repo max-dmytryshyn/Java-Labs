@@ -10,5 +10,25 @@ public class SawManager {
     public SawManager(List<Saw> saws){
         this.saws = saws;
     }
+    
+    public void addSaws(List<Saw> sawsToAdd){
+        saws.addAll(sawsToAdd);
+    }
+
+    public void removeSawByIndex(int index){
+        saws.remove(index);
+    }
+
+    public void clearSawsList(){
+        saws.clear();
+    }
+
+    public Saw getSawByIndex(int index) {
+        return saws.get(index);
+    }
+
+    public List<Saw> getAllSaws(){
+        return this.saws;
+    }
 
 }
