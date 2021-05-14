@@ -3,9 +3,11 @@ package ua.lviv.iot.saws.models;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class RippingSaw extends MechanicalSaw{
     private String toothShape;
 
