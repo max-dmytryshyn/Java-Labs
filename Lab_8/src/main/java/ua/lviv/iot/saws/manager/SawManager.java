@@ -5,6 +5,7 @@ import ua.lviv.iot.saws.models.Saw;
 import ua.lviv.iot.saws.models.SawMaterial;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,5 +46,14 @@ public class SawManager {
 
     public List<Saw> searchBySawMaterial(SawMaterial sawMaterial){
         return this.saws.stream().filter(saw -> saw.getSawMaterial().equals(sawMaterial)).collect(Collectors.toList());
+    }
+
+    public void sortByLength(SortOrder sortOrder){
+        if (sortOrder == SortOrder.ASC){
+            saws.sort(Comparator.comparing(Saw::getLengthInCm));
+        }
+        else{
+            saws.sort(Comparator.comparing(Saw::getLengthInCm).reversed());
+        }
     }
 }
