@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 public class Hacksaw extends MechanicalSaw{
     String bladeManufacturer;
 
-    @Builder
     public Hacksaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, String bladeManufacturer
     ){

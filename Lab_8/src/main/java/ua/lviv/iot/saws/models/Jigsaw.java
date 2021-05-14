@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 public class Jigsaw extends Saw{
     private Integer operatingVoltage;
 
-    @Builder
     public Jigsaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Integer operatingVoltage
     ){

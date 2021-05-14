@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TwoManSaw extends MechanicalSaw{
     private Person secondUser;
-
-    @Builder
+    
     public TwoManSaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, Person secondUser
     ){

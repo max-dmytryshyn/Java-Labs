@@ -10,8 +10,6 @@ public class Fretsaw extends MechanicalSaw{
     private Double arcLengthInCm;
     private String bladeManufacturer;
 
-
-    @Builder
     public Fretsaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, Double arcLengthInCm, String bladeManufacturer
             ){

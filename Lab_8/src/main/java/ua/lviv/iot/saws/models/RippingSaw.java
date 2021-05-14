@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 public class RippingSaw extends MechanicalSaw{
     private String toothShape;
 
-    @Builder
     public RippingSaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, String toothShape
     ){

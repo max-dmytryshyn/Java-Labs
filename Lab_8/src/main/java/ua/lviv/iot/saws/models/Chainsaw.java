@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 public class Chainsaw extends Saw{
     private Double tankVolume;
 
-    @Builder
     public Chainsaw(
             SawMaterial sawMaterial, Person person, Double lengthInCm, Double tankVolume
     ){
