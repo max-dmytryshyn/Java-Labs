@@ -11,11 +11,9 @@ public class Jigsaw extends Saw{
 
     @Builder
     public Jigsaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Integer operatingVoltage
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Integer operatingVoltage
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm);
+        super(MaterialToSaw.WOOD, DriveType.ELECTRIC, sawMaterial, person, lengthInCm);
         this.operatingVoltage = operatingVoltage;
-        this.driveType = DriveType.ELECTRIC;
     }
 }

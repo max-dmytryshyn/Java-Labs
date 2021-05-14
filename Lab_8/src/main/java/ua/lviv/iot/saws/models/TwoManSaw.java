@@ -11,10 +11,9 @@ public class TwoManSaw extends MechanicalSaw{
 
     @Builder
     public TwoManSaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double toothSizeInMm, Person secondUser
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, Person secondUser
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm, toothSizeInMm);
+        super(MaterialToSaw.WOOD, sawMaterial, person, lengthInCm, toothSizeInMm);
         this.secondUser = secondUser;
     }
 }

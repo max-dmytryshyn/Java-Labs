@@ -11,10 +11,9 @@ public class Hacksaw extends MechanicalSaw{
 
     @Builder
     public Hacksaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double toothSizeInMm, String bladeManufacturer
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, String bladeManufacturer
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm, toothSizeInMm);
+        super(MaterialToSaw.METAL, sawMaterial, person, lengthInCm, toothSizeInMm);
         this.bladeManufacturer = bladeManufacturer;
     }
 }

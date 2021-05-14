@@ -11,12 +11,10 @@ public class MechanicalSaw extends Saw{
 
     @Builder
     public MechanicalSaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double toothSizeInMm
+            MaterialToSaw materialToSaw, SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm);
+        super(materialToSaw, DriveType.MECHANICAL, sawMaterial, person, lengthInCm);
         this.toothSizeInMm = toothSizeInMm;
-        this.driveType = DriveType.MECHANICAL;
     }
 
 }

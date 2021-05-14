@@ -13,10 +13,9 @@ public class Fretsaw extends MechanicalSaw{
 
     @Builder
     public Fretsaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double toothSizeInMm, Double arcLengthInCm, String bladeManufacturer
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, Double arcLengthInCm, String bladeManufacturer
             ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm, toothSizeInMm);
+        super(MaterialToSaw.WOOD, sawMaterial, person, lengthInCm, toothSizeInMm);
         this.arcLengthInCm = arcLengthInCm;
         this.bladeManufacturer = bladeManufacturer;
     }

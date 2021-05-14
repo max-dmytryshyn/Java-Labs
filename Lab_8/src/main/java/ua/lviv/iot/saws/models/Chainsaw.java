@@ -11,11 +11,9 @@ public class Chainsaw extends Saw{
 
     @Builder
     public Chainsaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double tankVolume
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Double tankVolume
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm);
+        super(MaterialToSaw.WOOD, DriveType.INTERNAL_COMBUSTION_ENGINE, sawMaterial, person, lengthInCm);
         this.tankVolume = tankVolume;
-        this.driveType = DriveType.INTERNAL_COMBUSTION_ENGINE;
     }
 }

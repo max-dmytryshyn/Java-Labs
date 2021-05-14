@@ -11,10 +11,9 @@ public class RippingSaw extends MechanicalSaw{
 
     @Builder
     public RippingSaw(
-            MaterialToSaw materialToSaw, DriveType driveType, SawMaterial sawMaterial, Person person,
-            Double lengthInCm, Double toothSizeInMm, String toothShape
+            SawMaterial sawMaterial, Person person, Double lengthInCm, Double toothSizeInMm, String toothShape
     ){
-        super(materialToSaw, driveType, sawMaterial, person, lengthInCm, toothSizeInMm);
+        super(MaterialToSaw.WOOD, sawMaterial, person, lengthInCm, toothSizeInMm);
         this.toothShape = toothShape;
     }
 }
