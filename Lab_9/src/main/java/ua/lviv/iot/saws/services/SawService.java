@@ -14,26 +14,26 @@ public class SawService {
     private AtomicInteger id = new AtomicInteger(0);
     private Map<Integer, Saw> sawsMap = new HashMap<Integer, Saw>();
 
-    public List<Saw> getSaws(){
+    public List<Saw> getSaws() {
         return sawsMap.values().stream().collect(Collectors.toList());
     }
 
-    public Saw getSawById(Integer id) {
+    public Saw getSawById(final Integer id) {
         return sawsMap.get(id);
     }
 
-    public Saw createSaw(Saw saw){
+    public Saw createSaw(final Saw saw) {
         saw.setId(id.incrementAndGet());
         sawsMap.put(saw.getId(), saw);
         return saw;
     }
 
-    public Saw updateSawById(Integer id, Saw saw){
+    public Saw updateSawById(final Integer id, final Saw saw) {
         saw.setId(id);
         return sawsMap.put(id, saw);
     }
 
-    public Saw deleteSawById(Integer id){
+    public Saw deleteSawById(final Integer id) {
         return sawsMap.remove(id);
     }
 }
