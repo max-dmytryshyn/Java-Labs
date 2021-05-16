@@ -29,6 +29,7 @@ public class SawService {
     }
 
     public Saw updateSawById(Integer id, Saw saw){
+        saw.setId(id);
         return sawsMap.put(id, saw);
     }
 
