@@ -33,4 +33,7 @@ public class SawService {
         return sawsMap.put(id, saw);
     }
 
+    public Saw deleteSawById(Integer id){
+        return sawsMap.remove(id);
+    }
 }
