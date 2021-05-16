@@ -33,8 +33,8 @@ public class SawController {
     }
 
     @GetMapping
-    public List<Saw> getSaws(){
-        return sawService.getSaws();
+    public ResponseEntity<List<Saw>> getSaws(){
+        return ResponseEntity.ok(sawService.getSaws());
     }
 
     @PostMapping
@@ -53,5 +53,4 @@ public class SawController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }
