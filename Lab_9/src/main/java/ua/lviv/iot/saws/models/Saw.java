@@ -1,6 +1,7 @@
 package ua.lviv.iot.saws.models;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ public class Saw {
     protected SawMaterial sawMaterial;
     protected Person user;
     protected Double lengthInCm;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     protected Integer id;
 
     Saw(final MaterialToSaw materialToSaw, final DriveType driveType, final SawMaterial sawMaterial,
