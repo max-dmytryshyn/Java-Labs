@@ -25,9 +25,9 @@ public class SawController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Saw> getSawById(@PathVariable Integer id) {
-        Saw existing_saw = sawService.getSawById(id);
-        if (existing_saw != null) {
-            return ResponseEntity.ok(existing_saw);
+        Saw existingSaw = sawService.getSawById(id);
+        if (existingSaw != null) {
+            return ResponseEntity.ok(existingSaw);
         } else {
             return ResponseEntity.notFound().build();
         }
