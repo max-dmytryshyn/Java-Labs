@@ -1,6 +1,8 @@
 package ua.lviv.iot.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.lviv.iot.dal.SawRepository;
 import ua.lviv.iot.saws.models.Saw;
 
 import java.util.HashMap;
@@ -13,6 +15,9 @@ import java.util.stream.Collectors;
 public class SawService {
     private AtomicInteger id = new AtomicInteger(0);
     private Map<Integer, Saw> sawsMap = new HashMap<Integer, Saw>();
+
+    @Autowired
+    private SawRepository repository;
 
     public List<Saw> getSaws() {
         return sawsMap.values().stream().collect(Collectors.toList());
