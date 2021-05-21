@@ -1,4 +1,4 @@
-package ua.lviv.iot.saws.controllers;
+package ua.lviv.iot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ua.lviv.iot.saws.models.Saw;
-import ua.lviv.iot.saws.services.SawService;
+import ua.lviv.iot.services.SawService;
 
 import java.util.List;
 

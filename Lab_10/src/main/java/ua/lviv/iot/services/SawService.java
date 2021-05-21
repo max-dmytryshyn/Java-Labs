@@ -1,4 +1,4 @@
-package ua.lviv.iot.saws.services;
+package ua.lviv.iot.services;
 
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.saws.models.Saw;
