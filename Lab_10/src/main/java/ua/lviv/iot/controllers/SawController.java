@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ua.lviv.iot.exeptions.IdProvidedWhileCreationException;
 import ua.lviv.iot.saws.models.Saw;
 import ua.lviv.iot.services.SawService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(path = "/saws")
@@ -24,11 +26,11 @@ public class SawController {
     private SawService sawService;
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Saw> getSawById(@PathVariable Integer id) {
-        Saw existingSaw = sawService.getSawById(id);
-        if (existingSaw != null) {
+    public ResponseEntity getSawById(@PathVariable Integer id) {
+        try {
+            Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(existingSaw);
-        } else {
+        } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
     }
@@ -39,28 +41,31 @@ public class SawController {
     }
 
     @PostMapping
-    public Saw createSaw(@RequestBody Saw saw) {
-        return sawService.createSaw(saw);
+    public ResponseEntity createSaw(@RequestBody Saw saw) {
+       try {
+           return ResponseEntity.ok(sawService.createSaw(saw));
+        }
+       catch (IdProvidedWhileCreationException e) {
+           return ResponseEntity.status(400).body(e.getMessage());
+       }
     }
 
-    @PutMapping(path = "{id}")
-    public ResponseEntity<Saw> updateSawById(@PathVariable Integer id, @RequestBody Saw saw) {
-        Saw existingSaw = sawService.getSawById(id);
-        if (existingSaw != null) {
-            ResponseEntity.ok(sawService.updateSawById(id, saw));
-            return ResponseEntity.ok(saw);
-        } else {
+    @PutMapping(path = "/{id}")
+    public ResponseEntity updateSawById(@PathVariable Integer id, @RequestBody Saw saw) {
+        try {
+            return ResponseEntity.ok(sawService.updateSawById(id, saw));
+        } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
     @CrossOrigin
-    @DeleteMapping(path = "{id}")
-    public ResponseEntity<Saw> deleteSawById(@PathVariable Integer id) {
-         Saw existingSaw = sawService.getSawById(id);
-        if (existingSaw != null) {
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteSawById(@PathVariable Integer id) {
+        try {
+            Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(sawService.deleteSawById(id));
-        } else {
+        } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
     }
