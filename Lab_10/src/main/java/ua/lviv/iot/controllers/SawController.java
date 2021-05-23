@@ -65,8 +65,7 @@ public class SawController {
             return ResponseEntity.status(400).body(e.getMessage());
         }
     }
-
-    @CrossOrigin
+    
     @DeleteMapping(path = "/{id}")
     public ResponseEntity deleteSawById(@PathVariable Integer id) {
         try {
