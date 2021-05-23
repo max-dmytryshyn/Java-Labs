@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.dal.SawRepository;
 import ua.lviv.iot.exeptions.IdProvidedWhileCreationException;
+import ua.lviv.iot.exeptions.IdProvidedWhileUpdatingException;
 import ua.lviv.iot.saws.models.Saw;
 
 import java.util.List;
@@ -32,6 +33,10 @@ public class SawService {
     }
 
     public Saw updateSawById(final Integer id, final Saw saw) {
+        if (saw.getId() != null) {
+            throw new IdProvidedWhileUpdatingException();
+        }
+
         if (repository.existsById(id)) {
             saw.setId(id);
             return repository.save(saw);
