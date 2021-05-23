@@ -25,19 +25,22 @@ public class SawController {
     @Autowired
     private SawService sawService;
 
+
+    @GetMapping
+    public ResponseEntity<List<Saw>> getSaws() {
+        return ResponseEntity.ok(sawService.getSaws());
+    }
+    
     @GetMapping(path = "/{id}")
     public ResponseEntity getSawById(@PathVariable Integer id) {
         try {
             Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(existingSaw);
-        } catch (NoSuchElementException e) {
+        }
+
+        catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Saw>> getSaws() {
-        return ResponseEntity.ok(sawService.getSaws());
     }
 
     @PostMapping
@@ -45,6 +48,7 @@ public class SawController {
        try {
            return ResponseEntity.ok(sawService.createSaw(saw));
         }
+
        catch (IdProvidedWhileCreationException e) {
            return ResponseEntity.status(400).body(e.getMessage());
        }
@@ -54,7 +58,9 @@ public class SawController {
     public ResponseEntity updateSawById(@PathVariable Integer id, @RequestBody Saw saw) {
         try {
             return ResponseEntity.ok(sawService.updateSawById(id, saw));
-        } catch (NoSuchElementException e) {
+        }
+
+        catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
     }
@@ -65,7 +71,9 @@ public class SawController {
         try {
             Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(sawService.deleteSawById(id));
-        } catch (NoSuchElementException e) {
+        }
+
+        catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
         }
     }
