@@ -3,42 +3,43 @@ package ua.lviv.iot.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.dal.SawRepository;
+import ua.lviv.iot.exeptions.IdProvidedWhileCreationException;
 import ua.lviv.iot.saws.models.Saw;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
+
 
 @Service
 public class SawService {
-    private AtomicInteger id = new AtomicInteger(0);
-    private Map<Integer, Saw> sawsMap = new HashMap<Integer, Saw>();
 
     @Autowired
     private SawRepository repository;
 
     public List<Saw> getSaws() {
-        return sawsMap.values().stream().collect(Collectors.toList());
+        return repository.findAll();
     }
 
     public Saw getSawById(final Integer id) {
-        return sawsMap.get(id);
+        return repository.findById(id).orElseThrow();
     }
 
     public Saw createSaw(final Saw saw) {
-        saw.setId(id.incrementAndGet());
-        sawsMap.put(saw.getId(), saw);
-        return saw;
+        return repository.save(saw);
     }
 
     public Saw updateSawById(final Integer id, final Saw saw) {
-        saw.setId(id);
-        return sawsMap.put(id, saw);
+        if (repository.existsById(id)) {
+            saw.setId(id);
+            return repository.save(saw);
+        }
+
+        throw new NoSuchElementException();
     }
 
     public Saw deleteSawById(final Integer id) {
-        return sawsMap.remove(id);
+        Saw sawToDelete = repository.findById(id).orElseThrow();
+        repository.deleteById(id);
+        return sawToDelete;
     }
 }
