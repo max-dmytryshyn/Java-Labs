@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ua.lviv.iot</groupId>
-    <artifactId>Lab_9</artifactId>
+    <artifactId>Lab_10</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
