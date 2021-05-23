@@ -36,9 +36,7 @@ public class SawController {
         try {
             Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(existingSaw);
-        }
-
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return ResponseEntity.status(404).body(
                     "Can't get saw with id " + id + ". Such saw doesn't exist"
             );
@@ -47,22 +45,18 @@ public class SawController {
 
     @PostMapping
     public ResponseEntity createSaw(@RequestBody Saw saw) {
-       try {
-           return ResponseEntity.ok(sawService.createSaw(saw));
+        try {
+            return ResponseEntity.ok(sawService.createSaw(saw));
+        } catch (IdProvidedWhileCreationException e) {
+            return ResponseEntity.status(400).body(e.getMessage());
         }
-
-       catch (IdProvidedWhileCreationException e) {
-           return ResponseEntity.status(400).body(e.getMessage());
-       }
     }
 
     @PutMapping(path = "/{id}")
     public ResponseEntity updateSawById(@PathVariable Integer id, @RequestBody Saw saw) {
         try {
             return ResponseEntity.ok(sawService.updateSawById(id, saw));
-        }
-
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return ResponseEntity.status(404).body(
                     "Can't update saw with id " + id + ". Such saw doesn't exist"
             );
@@ -75,9 +69,7 @@ public class SawController {
         try {
             Saw existingSaw = sawService.getSawById(id);
             return ResponseEntity.ok(sawService.deleteSawById(id));
-        }
-
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return ResponseEntity.status(404).body(
                     "Can't delete saw with id " + id + ". Such saw doesn't exist"
             );
