@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ua.lviv.iot.exeptions.IdProvidedWhileCreationException;
+import ua.lviv.iot.exeptions.IdProvidedWhileUpdatingException;
 import ua.lviv.iot.saws.models.Saw;
 import ua.lviv.iot.services.SawService;
 
@@ -60,6 +61,8 @@ public class SawController {
             return ResponseEntity.status(404).body(
                     "Can't update saw with id " + id + ". Such saw doesn't exist"
             );
+        } catch (IdProvidedWhileUpdatingException e) {
+            return ResponseEntity.status(400).body(e.getMessage());
         }
     }
 
