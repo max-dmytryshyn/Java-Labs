@@ -30,7 +30,7 @@ public class SawController {
     public ResponseEntity<List<Saw>> getSaws() {
         return ResponseEntity.ok(sawService.getSaws());
     }
-    
+
     @GetMapping(path = "/{id}")
     public ResponseEntity getSawById(@PathVariable Integer id) {
         try {
@@ -39,7 +39,9 @@ public class SawController {
         }
 
         catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body(
+                    "Can't get saw with id " + id + ". Such saw doesn't exist"
+            );
         }
     }
 
@@ -61,7 +63,9 @@ public class SawController {
         }
 
         catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body(
+                    "Can't update saw with id " + id + ". Such saw doesn't exist"
+            );
         }
     }
 
@@ -74,7 +78,9 @@ public class SawController {
         }
 
         catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body(
+                    "Can't delete saw with id " + id + ". Such saw doesn't exist"
+            );
         }
     }
 }
