@@ -25,6 +25,9 @@ public class SawService {
     }
 
     public Saw createSaw(final Saw saw) {
+        if (saw.getId() != null){
+            throw new IdProvidedWhileCreationException();
+        }
         return repository.save(saw);
     }
 
