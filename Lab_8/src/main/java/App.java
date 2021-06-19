@@ -3,30 +3,42 @@ import ua.lviv.iot.saws.manager.SortOrder;
 import ua.lviv.iot.saws.models.*;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class App {
     public static void main(String[] args) {
+        AtomicInteger personId = new AtomicInteger(0);
+        AtomicInteger sawId = new AtomicInteger(0);
+        ArrayList<Person> people = new ArrayList<>();
+        ArrayList<Saw> saws = new ArrayList<>();
+        people.add(new Person(personId.getAndIncrement(), "Max", 17));
+        people.add(new Person(personId.getAndIncrement(), "Danylo", 19));
+        people.add(new Person(personId.getAndIncrement(), "La Kosta", 18));
+        people.add(new Person(personId.getAndIncrement(), "Dmytro", 13));
+        people.add(new Person(personId.getAndIncrement(), "Ivan", 18));
+        people.add(new Person(personId.getAndIncrement(), "Andrew", 18));
         Jigsaw jigsaw = new Jigsaw(
-                new SawMaterial("copper", "plastic"), new Person("Max", 17), 14.5, 240
+                sawId.getAndIncrement(), new SawMaterial("copper", "plastic"), people.get(0).getId(), 14.5, 240
         );
         Chainsaw chainsaw = new Chainsaw(
-                new SawMaterial("steel", "plastic"), new Person("Danylo", 19), 30.0, 5.5
+                sawId.getAndIncrement(), new SawMaterial("steel", "plastic"), people.get(1).getId(), 30.0, 5.5
         );
         RippingSaw rippingSaw = new RippingSaw(
-                new SawMaterial("lead", "wood"), new Person("La Kosta", 18), 16.0, 5.0, "round"
+                sawId.getAndIncrement(), new SawMaterial("lead", "wood"), people.get(2).getId(), 16.0, 5.0, "round"
         );
         Hacksaw hacksaw = new Hacksaw(
-                new SawMaterial("steel", "plastic"), new Person("Dmytro", 13), 12.0, 10.0, "Blades CO"
+                sawId.getAndIncrement(), new SawMaterial("steel", "plastic"), people.get(3).getId(), 12.0, 10.0, "Blades CO"
         );
         Fretsaw fretsaw = new Fretsaw(
-                new SawMaterial("aluminium", "wood"), new Person("Ivan", 18), 13.2, 7.0, 20.5, "Blades CO"
+                sawId.getAndIncrement(), new SawMaterial("aluminium", "wood"), people.get(4).getId(), 13.2, 7.0, 20.5, "Blades CO"
         );
         TwoManSaw twoManSaw = new TwoManSaw(
-                new SawMaterial("steel", "wood"), new Person("Max", 17), 40.5, 6.0, new Person("Andrew", 18)
+                sawId.getAndIncrement(), new SawMaterial("steel", "wood"), people.get(0).getId(), 40.5, 6.0, people.get(5).getId()
         );
         SawManager sawManager = new SawManager();
-        sawManager.addSaws(Arrays.asList(jigsaw, chainsaw, rippingSaw, hacksaw, fretsaw, twoManSaw));
+        sawManager.addSaws(Arrays.asList(jigsaw, chainsaw, rippingSaw, hacksaw, fretsaw, twoManSaw, jigsaw, chainsaw, rippingSaw, hacksaw, fretsaw, twoManSaw));
         System.out.println("All saws:");
         sawManager.getAllSaws().forEach(System.out::println);
         System.out.println("--------------------------------------");
