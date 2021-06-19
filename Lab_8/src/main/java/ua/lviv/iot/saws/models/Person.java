@@ -15,4 +15,8 @@ public class Person {
     public String getHeaders(){
         return "id,name,age";
     }
+
+    public String toCSV(){
+        return this.id.toString() + "," + this.name + "," + this.age.toString();
+    }
 }

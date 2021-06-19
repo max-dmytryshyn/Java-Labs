@@ -24,4 +24,9 @@ public class Fretsaw extends MechanicalSaw {
     public String getHeaders() {
         return super.getHeaders() + ",arcLength_in_cm,blade_manufacturer";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.arcLengthInCm.toString() + "," + this.bladeManufacturer;
+    }
 }

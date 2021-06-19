@@ -23,4 +23,9 @@ public class Chainsaw extends Saw {
     public String getHeaders() {
         return super.getHeaders() + ",tank_volume";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.tankVolume.toString();
+    }
 }

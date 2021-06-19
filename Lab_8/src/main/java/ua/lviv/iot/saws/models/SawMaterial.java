@@ -14,4 +14,8 @@ public class SawMaterial {
     public String getHeaders(){
         return "handle_material,blade_material";
     }
+
+    public String toCSV(){
+        return this.handleMaterial + "," + this.bladeMaterial;
+    }
 }

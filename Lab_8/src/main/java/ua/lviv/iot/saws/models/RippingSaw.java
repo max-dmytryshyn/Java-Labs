@@ -22,4 +22,9 @@ public class RippingSaw extends MechanicalSaw {
     public String getHeaders() {
         return super.getHeaders() + ",tooth_shape";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.toothShape;
+    }
 }

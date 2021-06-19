@@ -19,4 +19,9 @@ public class Saw {
     public String getHeaders() {
         return "id,material_to_saw,drive_type," + this.sawMaterial.getHeaders() + ",user_id,length_in_cm";
     }
+
+    public String toCSV(){
+        return this.id.toString() + "," + this.materialToSaw.toString() + "," + this.driveType.toString() + "," +
+                this.sawMaterial.toCSV() + "," + this.userId.toString() + "," + this.lengthInCm.toString();
+    }
 }

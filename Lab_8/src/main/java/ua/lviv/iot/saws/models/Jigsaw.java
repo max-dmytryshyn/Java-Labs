@@ -22,4 +22,9 @@ public class Jigsaw extends Saw {
     public String getHeaders() {
         return super.getHeaders() + ",operating_voltage";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.operatingVoltage.toString();
+    }
 }

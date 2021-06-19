@@ -22,4 +22,9 @@ public class TwoManSaw extends MechanicalSaw {
     public String getHeaders() {
         return super.getHeaders() + ",second_user_id";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.secondUserId.toString();
+    }
 }

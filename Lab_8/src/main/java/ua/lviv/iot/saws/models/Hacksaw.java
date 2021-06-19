@@ -22,4 +22,9 @@ public class Hacksaw extends MechanicalSaw {
     public String getHeaders() {
         return super.getHeaders() +",blade_manufacturer";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.bladeManufacturer;
+    }
 }

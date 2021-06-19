@@ -22,4 +22,9 @@ public class MechanicalSaw extends Saw {
     public String getHeaders() {
         return super.getHeaders() + ",tooth_size_in_mm";
     }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + this.toothSizeInMm.toString();
+    }
 }
