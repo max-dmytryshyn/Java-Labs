@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Saw {
+    protected Integer id;
     protected MaterialToSaw materialToSaw;
     protected DriveType driveType;
     protected SawMaterial sawMaterial;

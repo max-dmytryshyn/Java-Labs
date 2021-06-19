@@ -11,10 +11,10 @@ public class Hacksaw extends MechanicalSaw {
     String bladeManufacturer;
 
     public Hacksaw(
-            final SawMaterial sawMaterial, final Integer userId, final Double lengthInCm,
+            final Integer id, final SawMaterial sawMaterial, final Integer userId, final Double lengthInCm,
             final Double toothSizeInMm, final String bladeManufacturer
     ) {
-        super(MaterialToSaw.METAL, sawMaterial, userId, lengthInCm, toothSizeInMm);
+        super(id, MaterialToSaw.METAL, sawMaterial, userId, lengthInCm, toothSizeInMm);
         this.bladeManufacturer = bladeManufacturer;
     }
 }

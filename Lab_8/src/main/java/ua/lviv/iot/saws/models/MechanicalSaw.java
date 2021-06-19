@@ -11,10 +11,10 @@ public class MechanicalSaw extends Saw {
     private Double toothSizeInMm;
 
     public MechanicalSaw(
-            final MaterialToSaw materialToSaw, final SawMaterial sawMaterial,
+            final Integer id, final MaterialToSaw materialToSaw, final SawMaterial sawMaterial,
             final Integer userId, final Double lengthInCm, final Double toothSizeInMm
     ) {
-        super(materialToSaw, DriveType.MECHANICAL, sawMaterial, userId, lengthInCm);
+        super(id, materialToSaw, DriveType.MECHANICAL, sawMaterial, userId, lengthInCm);
         this.toothSizeInMm = toothSizeInMm;
     }
 

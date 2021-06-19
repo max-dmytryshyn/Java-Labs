@@ -11,10 +11,10 @@ public class TwoManSaw extends MechanicalSaw {
     private Integer secondUserId;
 
     public TwoManSaw(
-            final SawMaterial sawMaterial, final Integer userId,
+            final Integer id, final SawMaterial sawMaterial, final Integer userId,
             final Double lengthInCm, final Double toothSizeInMm, final Integer secondUserId
     ) {
-        super(MaterialToSaw.WOOD, sawMaterial, userId, lengthInCm, toothSizeInMm);
+        super(id, MaterialToSaw.WOOD, sawMaterial, userId, lengthInCm, toothSizeInMm);
         this.secondUserId = secondUserId;
     }
 }
