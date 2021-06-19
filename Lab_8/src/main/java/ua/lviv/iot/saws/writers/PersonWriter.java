@@ -9,7 +9,6 @@ import java.util.List;
 
 public class PersonWriter {
     public static void writeToFile(String filePath, List<Person> people) {
-        if (!people.isEmpty()) {
             try {
                 File csvOutputFile = new File(filePath);
                 System.out.println("Creating a " + filePath);
@@ -22,6 +21,7 @@ public class PersonWriter {
                 System.out.println("Error occurred. Cannot create a file in " + filePath);
                 e.printStackTrace();
             }
+        if (!people.isEmpty()) {
             try {
                 FileWriter csvOutputFileWriter = new FileWriter(filePath);
                 System.out.println("Writing to " + filePath);
