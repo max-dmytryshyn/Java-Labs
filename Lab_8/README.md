@@ -18,7 +18,7 @@ the test folder and pom.xml:
 + `App.java` is the file with test code for `SawManager` from lab 8
 + `ua.lviv.iot` package in the `test` folder contains `SawWriterTest` and `PersonWriterTest` classes with tests for 
   `SawWriter` and `PersonWriter` respectively
-+ `pom.xml` which contains dependencies for Lombok, Apache Commons IO, JUnit Jupiter API, PMD, Checkstyle
++ `pom.xml` which contains dependencies for Lombok, Apache Commons IO, JUnit Jupiter API, PMD, Checkstyle, SpotBugs
 
 ## How to run
 + Clone this repository with command `git clone https://github.com/max-dmytryshyn/Java-Labs.git`
