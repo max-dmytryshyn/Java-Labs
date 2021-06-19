@@ -40,8 +40,7 @@ public class PersonWriter {
                 System.out.println("Error occurred. Cannot create file writer for " + filePath);
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             System.out.println("No people to write");
         }
     }

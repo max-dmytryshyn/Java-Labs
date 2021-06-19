@@ -12,7 +12,6 @@ public class App {
         AtomicInteger personId = new AtomicInteger(0);
         AtomicInteger sawId = new AtomicInteger(0);
         ArrayList<Person> people = new ArrayList<>();
-        ArrayList<Saw> saws = new ArrayList<>();
         people.add(new Person(personId.getAndIncrement(), "Max", 17));
         people.add(new Person(personId.getAndIncrement(), "Danylo", 19));
         people.add(new Person(personId.getAndIncrement(), "La Kosta", 18));

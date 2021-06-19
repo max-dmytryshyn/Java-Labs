@@ -12,11 +12,11 @@ public class Person {
     private String name;
     private Integer age;
 
-    public String getHeaders(){
+    public String getHeaders() {
         return "id,name,age";
     }
 
-    public String toCSV(){
+    public String toCSV() {
         return this.id.toString() + "," + this.name + "," + this.age.toString();
     }
 }

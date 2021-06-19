@@ -29,9 +29,9 @@ public class SawWriter {
                 saws.sort(Comparator.comparing(saw -> saw.getClass().getSimpleName()));
                 String currentHeader = saws.get(0).getHeaders();
                 csvOutputFileWriter.write(currentHeader + "\n");
-                for (Saw saw: saws){
+                for (Saw saw: saws) {
                     try {
-                        if (!saw.getHeaders().equals(currentHeader)){
+                        if (!saw.getHeaders().equals(currentHeader)) {
                             csvOutputFileWriter.write(currentHeader + "\n");
                             currentHeader = saw.getHeaders();
                         }
@@ -47,8 +47,7 @@ public class SawWriter {
                 System.out.println("Error occurred. Cannot create file writer for " + filePath);
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             System.out.println("No saws to write");
         }
     }
