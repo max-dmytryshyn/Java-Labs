@@ -18,4 +18,8 @@ public class MechanicalSaw extends Saw {
         this.toothSizeInMm = toothSizeInMm;
     }
 
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ",tooth_size_in_mm";
+    }
 }

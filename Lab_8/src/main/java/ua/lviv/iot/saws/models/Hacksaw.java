@@ -17,4 +17,9 @@ public class Hacksaw extends MechanicalSaw {
         super(id, MaterialToSaw.METAL, sawMaterial, userId, lengthInCm, toothSizeInMm);
         this.bladeManufacturer = bladeManufacturer;
     }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() +",blade_manufacturer";
+    }
 }

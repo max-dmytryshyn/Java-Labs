@@ -17,4 +17,9 @@ public class RippingSaw extends MechanicalSaw {
         super(id, MaterialToSaw.WOOD, sawMaterial, userId, lengthInCm, toothSizeInMm);
         this.toothShape = toothShape;
     }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ",tooth_shape";
+    }
 }

@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class SawMaterial {
     private String handleMaterial;
     private String bladeMaterial;
+
+    public String getHeaders(){
+        return "handle_material,blade_material";
+    }
 }

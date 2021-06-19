@@ -18,4 +18,9 @@ public class Chainsaw extends Saw {
                 sawMaterial, userId, lengthInCm);
         this.tankVolume = tankVolume;
     }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ",tank_volume";
+    }
 }

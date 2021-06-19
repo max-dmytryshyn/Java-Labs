@@ -15,4 +15,8 @@ public class Saw {
     protected SawMaterial sawMaterial;
     protected Integer userId;
     protected Double lengthInCm;
+
+    public String getHeaders() {
+        return "id,material_to_saw,drive_type," + this.sawMaterial.getHeaders() + ",user_id,length_in_cm";
+    }
 }

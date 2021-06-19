@@ -11,4 +11,8 @@ public class Person {
     private Integer id;
     private String name;
     private Integer age;
+
+    public String getHeaders(){
+        return "id,name,age";
+    }
 }

@@ -18,4 +18,8 @@ public class Jigsaw extends Saw {
         this.operatingVoltage = operatingVoltage;
     }
 
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + ",operating_voltage";
+    }
 }
