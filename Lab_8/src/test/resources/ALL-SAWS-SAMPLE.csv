@@ -1,0 +1,16 @@
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,tank_volume
+2,WOOD,INTERNAL_COMBUSTION_ENGINE,plastic,steel,1,30.0,5.5
+9,WOOD,INTERNAL_COMBUSTION_ENGINE,plastic,steel,2,35.5,3.5
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,tank_volume
+10,WOOD,MECHANICAL,wood,aluminium,4,13.2,7.0,20.5,Blades CO
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,tooth_size_in_mm,arcLength_in_cm,blade_manufacturer
+4,METAL,MECHANICAL,plastic,steel,3,12.0,10.0,Blades CO
+6,METAL,MECHANICAL,wood,steel,5,13.5,8.25,Blades CO
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,tooth_size_in_mm,blade_manufacturer
+1,WOOD,ELECTRIC,plastic,copper,0,14.5,240
+8,WOOD,ELECTRIC,plastic,steel,1,12.5,240
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,operating_voltage
+3,WOOD,MECHANICAL,wood,lead,2,16.0,5.0,round
+7,WOOD,MECHANICAL,plastic,lead,2,9.0,5.0,rectangle
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,tooth_size_in_mm,tooth_shape
+5,WOOD,MECHANICAL,wood,steel,0,40.5,6.0,5

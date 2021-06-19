@@ -1,0 +1,4 @@
+id,material_to_saw,drive_type,handle_material,blade_material,user_id,length_in_cm,operating_voltage
+1,WOOD,ELECTRIC,plastic,copper,0,14.5,240
+2,WOOD,ELECTRIC,plastic,steel,1,12.5,240
+3,WOOD,ELECTRIC,plastic,aluminium,2,10.5,240
