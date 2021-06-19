@@ -8,13 +8,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class TwoManSaw extends MechanicalSaw {
-    private Person secondUser;
+    private Integer secondUserId;
 
     public TwoManSaw(
-            final SawMaterial sawMaterial, final Person person,
-            final Double lengthInCm, final Double toothSizeInMm, final Person secondUser
+            final SawMaterial sawMaterial, final Integer userId,
+            final Double lengthInCm, final Double toothSizeInMm, final Integer secondUserId
     ) {
-        super(MaterialToSaw.WOOD, sawMaterial, person, lengthInCm, toothSizeInMm);
-        this.secondUser = secondUser;
+        super(MaterialToSaw.WOOD, sawMaterial, userId, lengthInCm, toothSizeInMm);
+        this.secondUserId = secondUserId;
     }
 }

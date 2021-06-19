@@ -11,10 +11,10 @@ public class Jigsaw extends Saw {
     private Integer operatingVoltage;
 
     public Jigsaw(
-            final SawMaterial sawMaterial, final Person person,
+            final SawMaterial sawMaterial, final Integer userId,
             final Double lengthInCm, final Integer operatingVoltage
     ) {
-        super(MaterialToSaw.WOOD, DriveType.ELECTRIC, sawMaterial, person, lengthInCm);
+        super(MaterialToSaw.WOOD, DriveType.ELECTRIC, sawMaterial, userId, lengthInCm);
         this.operatingVoltage = operatingVoltage;
     }
 

@@ -11,11 +11,11 @@ public class Chainsaw extends Saw {
     private Double tankVolume;
 
     public Chainsaw(
-            final SawMaterial sawMaterial, final Person person,
+            final SawMaterial sawMaterial, final Integer userId,
             final Double lengthInCm, final Double tankVolume
     ) {
         super(MaterialToSaw.WOOD, DriveType.INTERNAL_COMBUSTION_ENGINE,
-                sawMaterial, person, lengthInCm);
+                sawMaterial, userId, lengthInCm);
         this.tankVolume = tankVolume;
     }
 }
