@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PersonWriterTest {
 
     @Test
-    void test_convert_to_csv_people_provided(){
+    void Test_Convert_To_CSV_People_Provided(){
         AtomicInteger personId = new AtomicInteger(0);
         ArrayList<Person> people = new ArrayList<>();
         people.add(new Person(personId.getAndIncrement(), "Max", 17));
@@ -38,7 +38,7 @@ public class PersonWriterTest {
     }
 
     @Test
-    void test_convert_to_csv_no_people_provided(){
+    void Test_Convert_To_CSV_No_People_Provided(){
         File expected = new File("src/test/resources/USERS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
         SawWriter.writeToFile("src/test/resources/USERS.csv", saws);

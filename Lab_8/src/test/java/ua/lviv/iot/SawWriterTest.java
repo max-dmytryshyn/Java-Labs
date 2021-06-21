@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SawWriterTest {
 
     @Test
-    void test_convert_to_csv_all_types_of_saw(){
+    void Test_Convert_To_CSV_All_Types_Of_Saws(){
         AtomicInteger sawId = new AtomicInteger(1);
         ArrayList<Saw> saws = new ArrayList<>();
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "copper"), 0, 14.5, 240));
@@ -41,7 +41,7 @@ public class SawWriterTest {
     }
 
     @Test
-    void test_convert_to_csv_one_type_of_saw(){
+    void Test_Convert_To_CSV_One_Type_Of_Saws(){
         AtomicInteger sawId = new AtomicInteger(1);
         ArrayList<Saw> saws = new ArrayList<>();
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "copper"), 0, 14.5, 240));
@@ -59,7 +59,7 @@ public class SawWriterTest {
     }
 
     @Test
-    void test_convert_to_csv_no_saws(){
+    void Test_Convert_To_CSV_No_Saws(){
         File expected = new File("src/test/resources/SAWS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
         SawWriter.writeToFile("src/test/resources/SAWS.csv", saws);
