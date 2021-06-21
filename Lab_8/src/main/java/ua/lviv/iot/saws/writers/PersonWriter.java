@@ -9,21 +9,8 @@ import java.util.List;
 
 public class PersonWriter {
     public static void writeToFile(String filePath, List<Person> people) {
-            try {
-                File csvOutputFile = new File(filePath);
-                System.out.println("Creating a " + filePath);
-                if (csvOutputFile.createNewFile()) {
-                    System.out.println("File " + filePath + " created");
-                } else {
-                    System.out.println("File " + filePath + " already exists");
-                }
-            } catch (IOException e) {
-                System.out.println("Error occurred. Cannot create a file in " + filePath);
-                e.printStackTrace();
-            }
         if (!people.isEmpty()) {
-            try {
-                FileWriter csvOutputFileWriter = new FileWriter(filePath);
+            try (FileWriter csvOutputFileWriter = new FileWriter(filePath)) {
                 System.out.println("Writing to " + filePath);
                 csvOutputFileWriter.write(people.get(0).getHeaders() + "\n");
                 people.forEach(person -> {

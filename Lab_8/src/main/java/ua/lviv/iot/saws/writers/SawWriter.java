@@ -10,21 +10,8 @@ import java.util.List;
 
 public class SawWriter {
     public static void writeToFile(final String filePath, final List<Saw> saws) {
-            try {
-                File csvOutputFile = new File(filePath);
-                System.out.println("Creating a " + filePath);
-                if (csvOutputFile.createNewFile()) {
-                    System.out.println("File " + filePath + " created");
-                } else {
-                    System.out.println("File " + filePath + " already exists");
-                }
-            } catch (IOException e) {
-                System.out.println("Error occurred. Cannot create a file in " + filePath);
-                e.printStackTrace();
-            }
         if (!saws.isEmpty()) {
-            try {
-                FileWriter csvOutputFileWriter = new FileWriter(filePath);
+            try (FileWriter csvOutputFileWriter = new FileWriter(filePath)) {
                 System.out.println("Writing to " + filePath);
                 saws.sort(Comparator.comparing(saw -> saw.getClass().getSimpleName()));
                 String currentHeader = saws.get(0).getHeaders();
