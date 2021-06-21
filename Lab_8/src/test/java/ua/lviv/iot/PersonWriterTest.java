@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PersonWriterTest {
 
     @Test
-    void Test_Convert_To_CSV_People_Provided(){
+    void testConvertToCSVPeopleProvided() {
         AtomicInteger personId = new AtomicInteger(0);
         ArrayList<Person> people = new ArrayList<>();
         people.add(new Person(personId.getAndIncrement(), "Max", 17));
@@ -31,22 +31,20 @@ public class PersonWriterTest {
         File expected = new File("src/test/resources/USERS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(expected, result));
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void Test_Convert_To_CSV_No_People_Provided(){
+    void testConvertToCSVNoPeopleProvided() {
         File expected = new File("src/test/resources/USERS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
         SawWriter.writeToFile("src/test/resources/USERS.csv", saws);
         File result = new File("src/test/resources/USERS.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -2,7 +2,9 @@ package ua.lviv.iot;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import ua.lviv.iot.saws.models.*;
 import ua.lviv.iot.saws.writers.SawWriter;
 
@@ -14,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SawWriterTest {
 
     @Test
-    void Test_Convert_To_CSV_All_Types_Of_Saws(){
+    public void testConvertToCSVAllTypesOfSaws() {
         AtomicInteger sawId = new AtomicInteger(1);
         ArrayList<Saw> saws = new ArrayList<>();
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "copper"), 0, 14.5, 240));
@@ -34,14 +36,13 @@ public class SawWriterTest {
         File expected = new File("src/test/resources/ALL-SAWS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void Test_Convert_To_CSV_One_Type_Of_Saws(){
+    void testConvertToCSVOneTypeOfSaws() {
         AtomicInteger sawId = new AtomicInteger(1);
         ArrayList<Saw> saws = new ArrayList<>();
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "copper"), 0, 14.5, 240));
@@ -52,22 +53,20 @@ public class SawWriterTest {
         File expected = new File("src/test/resources/ONE-TYPE-SAWS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void Test_Convert_To_CSV_No_Saws(){
+    void testConvertToCSVNoSaws() {
         File expected = new File("src/test/resources/SAWS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
         SawWriter.writeToFile("src/test/resources/SAWS.csv", saws);
         File result = new File("src/test/resources/SAWS.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
