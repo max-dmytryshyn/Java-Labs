@@ -31,8 +31,8 @@ public class SawWriterTest {
         saws.add(new Fretsaw(
                 sawId.getAndIncrement(), new SawMaterial("wood", "aluminium"), 4, 13.2, 7.0, 20.5, "Blades CO"
         ));
-        SawWriter.writeToFile("src/test/resources/SAWS.csv", saws);
-        File result = new File("src/test/resources/SAWS.csv");
+        SawWriter.writeToFile("target/SAWS.csv", saws);
+        File result = new File("target/SAWS.csv");
         File expected = new File("src/test/resources/ALL-SAWS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
@@ -48,8 +48,8 @@ public class SawWriterTest {
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "copper"), 0, 14.5, 240));
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "steel"), 1, 12.5, 240));
         saws.add(new Jigsaw(sawId.getAndIncrement(), new SawMaterial("plastic", "aluminium"), 2, 10.5, 240));
-        SawWriter.writeToFile("src/test/resources/SAWS.csv", saws);
-        File result = new File("src/test/resources/SAWS.csv");
+        SawWriter.writeToFile("target/SAWS.csv", saws);
+        File result = new File("target/SAWS.csv");
         File expected = new File("src/test/resources/ONE-TYPE-SAWS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
@@ -60,10 +60,10 @@ public class SawWriterTest {
 
     @Test
     void testConvertToCSVNoSaws() {
-        File expected = new File("src/test/resources/SAWS.csv");
+        File expected = new File("target/SAWS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
-        SawWriter.writeToFile("src/test/resources/SAWS.csv", saws);
-        File result = new File("src/test/resources/SAWS.csv");
+        SawWriter.writeToFile("target/SAWS.csv", saws);
+        File result = new File("target/SAWS.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
         } catch (IOException e) {

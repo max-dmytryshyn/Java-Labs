@@ -26,8 +26,8 @@ public class PersonWriterTest {
         people.add(new Person(personId.getAndIncrement(), "Dmytro", 13));
         people.add(new Person(personId.getAndIncrement(), "Ivan", 18));
         people.add(new Person(personId.getAndIncrement(), "Andrew", 18));
-        PersonWriter.writeToFile("src/test/resources/USERS.csv", people);
-        File result = new File("src/test/resources/USERS.csv");
+        PersonWriter.writeToFile("target/USERS.csv", people);
+        File result = new File("target/USERS.csv");
         File expected = new File("src/test/resources/USERS-SAMPLE.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(expected, result));
@@ -38,10 +38,10 @@ public class PersonWriterTest {
 
     @Test
     void testConvertToCSVNoPeopleProvided() {
-        File expected = new File("src/test/resources/USERS.csv");
+        File expected = new File("target/USERS.csv");
         ArrayList<Saw> saws = new ArrayList<>();
-        SawWriter.writeToFile("src/test/resources/USERS.csv", saws);
-        File result = new File("src/test/resources/USERS.csv");
+        SawWriter.writeToFile("target/USERS.csv", saws);
+        File result = new File("target/USERS.csv");
         try {
             assertEquals(true, FileUtils.contentEquals(result, expected));
         } catch (IOException e) {
